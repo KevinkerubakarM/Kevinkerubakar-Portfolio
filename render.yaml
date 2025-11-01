@@ -4,7 +4,8 @@ services:
     name: temporal-postgresql
     env: docker
     plan: free
-    image: postgres:15
+    dockerfilePath: ""
+    dockerImage: postgres:15
     envVars:
       - key: POSTGRES_USER
         value: temporal
@@ -20,7 +21,7 @@ services:
     name: temporal-elasticsearch
     env: docker
     plan: free
-    image: elasticsearch:8.13.4
+    dockerImage: elasticsearch:8.13.4
     dockerCommand: >
       elasticsearch
       -E cluster.routing.allocation.disk.threshold_enabled=true
@@ -40,10 +41,7 @@ services:
     name: temporal-server
     env: docker
     plan: free
-    image: temporalio/auto-setup:1.23.0
-    dependsOn:
-      - temporal-postgresql
-      - temporal-elasticsearch
+    dockerImage: temporalio/auto-setup:1.23.0
     envVars:
       - key: DB
         value: postgres12
@@ -77,9 +75,7 @@ services:
     name: temporal-ui
     env: docker
     plan: free
-    image: temporalio/ui:2.25.0
-    dependsOn:
-      - temporal-server
+    dockerImage: temporalio/ui:2.25.0
     envVars:
       - key: TEMPORAL_ADDRESS
         value: temporal-server:7233
@@ -93,9 +89,7 @@ services:
     name: temporal-admin-tools
     env: docker
     plan: free
-    image: temporalio/admin-tools:1.23.0
-    dependsOn:
-      - temporal-server
+    dockerImage: temporalio/admin-tools:1.23.0
     envVars:
       - key: TEMPORAL_ADDRESS
         value: temporal-server:7233
