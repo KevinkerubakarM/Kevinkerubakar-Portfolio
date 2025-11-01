@@ -2,7 +2,8 @@
 
 This website is to showcase my career and portfolio featuring projects
 
-#Featured Projects
+# Featured Projects
+1.X-Delta-AI Agent
 
 # X-Delta-AI Agent
 
