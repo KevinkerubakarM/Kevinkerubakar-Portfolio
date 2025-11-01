@@ -1,0 +1,104 @@
+services:
+  # 🟣 PostgreSQL
+  - type: web
+    name: temporal-postgresql
+    env: docker
+    plan: free
+    image: postgres:15
+    envVars:
+      - key: POSTGRES_USER
+        value: temporal
+      - key: POSTGRES_PASSWORD
+        value: temporal
+    disk:
+      name: temporal-postgres-data
+      mountPath: /var/lib/postgresql/data
+      sizeGB: 1
+
+  # 🟢 Elasticsearch
+  - type: web
+    name: temporal-elasticsearch
+    env: docker
+    plan: free
+    image: elasticsearch:8.13.4
+    dockerCommand: >
+      elasticsearch
+      -E cluster.routing.allocation.disk.threshold_enabled=true
+      -E cluster.routing.allocation.disk.watermark.low=512mb
+      -E cluster.routing.allocation.disk.watermark.high=256mb
+      -E cluster.routing.allocation.disk.watermark.flood_stage=128mb
+      -E discovery.type=single-node
+      -E xpack.security.enabled=false
+      -E ES_JAVA_OPTS="-Xms256m -Xmx256m"
+    disk:
+      name: temporal-es-data
+      mountPath: /usr/share/elasticsearch/data
+      sizeGB: 1
+
+  # ⚙️ Temporal Server
+  - type: web
+    name: temporal-server
+    env: docker
+    plan: free
+    image: temporalio/auto-setup:1.23.0
+    dependsOn:
+      - temporal-postgresql
+      - temporal-elasticsearch
+    envVars:
+      - key: DB
+        value: postgres12
+      - key: DB_PORT
+        value: 5432
+      - key: POSTGRES_USER
+        value: temporal
+      - key: POSTGRES_PWD
+        value: temporal
+      - key: POSTGRES_SEEDS
+        value: temporal-postgresql
+      - key: ENABLE_ES
+        value: "true"
+      - key: ES_SEEDS
+        value: temporal-elasticsearch
+      - key: ES_VERSION
+        value: v7
+      - key: TEMPORAL_ADDRESS
+        value: temporal-server:7233
+      - key: TEMPORAL_CLI_ADDRESS
+        value: temporal-server:7233
+      - key: DYNAMIC_CONFIG_FILE_PATH
+        value: /etc/temporal/config/dynamicconfig/development-sql.yaml
+    disk:
+      name: temporal-server-config
+      mountPath: /etc/temporal/config/dynamicconfig
+      sizeGB: 0.5
+
+  # 💻 Temporal UI
+  - type: web
+    name: temporal-ui
+    env: docker
+    plan: free
+    image: temporalio/ui:2.25.0
+    dependsOn:
+      - temporal-server
+    envVars:
+      - key: TEMPORAL_ADDRESS
+        value: temporal-server:7233
+      - key: TEMPORAL_CORS_ORIGINS
+        value: "*"
+    healthCheckPath: /
+    autoDeploy: true
+
+  # 🧰 Temporal Admin Tools
+  - type: worker
+    name: temporal-admin-tools
+    env: docker
+    plan: free
+    image: temporalio/admin-tools:1.23.0
+    dependsOn:
+      - temporal-server
+    envVars:
+      - key: TEMPORAL_ADDRESS
+        value: temporal-server:7233
+      - key: TEMPORAL_CLI_ADDRESS
+        value: temporal-server:7233
+    autoDeploy: true
