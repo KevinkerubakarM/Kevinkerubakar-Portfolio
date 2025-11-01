@@ -4,8 +4,7 @@ services:
     name: temporal-postgresql
     env: docker
     plan: free
-    dockerfilePath: ""
-    dockerImage: postgres:15
+    dockerfilePath: ./postgres/Dockerfile
     envVars:
       - key: POSTGRES_USER
         value: temporal
@@ -21,7 +20,7 @@ services:
     name: temporal-elasticsearch
     env: docker
     plan: free
-    dockerImage: elasticsearch:8.13.4
+    dockerfilePath: ./elastic/Dockerfile
     dockerCommand: >
       elasticsearch
       -E cluster.routing.allocation.disk.threshold_enabled=true
@@ -41,7 +40,7 @@ services:
     name: temporal-server
     env: docker
     plan: free
-    dockerImage: temporalio/auto-setup:1.23.0
+    dockerfilePath: ./temporal/Dockerfile
     envVars:
       - key: DB
         value: postgres12
@@ -75,7 +74,7 @@ services:
     name: temporal-ui
     env: docker
     plan: free
-    dockerImage: temporalio/ui:2.25.0
+    dockerfilePath: ./temporal-ui/Dockerfile
     envVars:
       - key: TEMPORAL_ADDRESS
         value: temporal-server:7233
@@ -89,10 +88,26 @@ services:
     name: temporal-admin-tools
     env: docker
     plan: free
-    dockerImage: temporalio/admin-tools:1.23.0
+    dockerfilePath: ./temporal-admin/Dockerfile
     envVars:
       - key: TEMPORAL_ADDRESS
         value: temporal-server:7233
       - key: TEMPORAL_CLI_ADDRESS
         value: temporal-server:7233
     autoDeploy: true
+
+  # 🧠 ChromaDB
+  - type: web
+    name: chromadb
+    env: docker
+    plan: free
+    dockerfilePath: ./chroma/Dockerfile
+    dockerCommand: chroma run --host 0.0.0.0 --port 8000
+    envVars:
+      - key: CHROMA_SERVER_AUTH_CREDENTIALS
+        value: demo
+    disk:
+      name: chroma-data
+      mountPath: /data
+      sizeGB: 1
+    healthCheckPath: /api/v2/heartbeat
