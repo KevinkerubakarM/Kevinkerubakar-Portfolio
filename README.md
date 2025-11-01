@@ -1,6 +1,6 @@
 # About
 
-This website is to showcase my career and portfolio featuring projects
+This project is to showcase my career and portfolio featuring projects
 
 # Featured Projects
 1.X-Delta-AI Agent
