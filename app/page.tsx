@@ -9,11 +9,21 @@ export default function Home() {
               <span className="text-xl font-bold">Kevinkerubakar M</span>
             </div>
             <div className="hidden sm:flex items-center space-x-8">
-              <a href="#about" className="nav-link">About</a>
-              <a href="#experience" className="nav-link">Experience</a>
-              <a href="#projects" className="nav-link">Projects</a>
-              <a href="#skills" className="nav-link">Skills</a>
-              <a href="#contact" className="nav-link">Contact</a>
+              <a href="#about" className="nav-link">
+                About
+              </a>
+              <a href="#experience" className="nav-link">
+                Experience
+              </a>
+              <a href="#projects" className="nav-link">
+                Projects
+              </a>
+              <a href="#skills" className="nav-link">
+                Skills
+              </a>
+              <a href="#contact" className="nav-link">
+                Contact
+              </a>
             </div>
           </div>
         </div>
@@ -23,8 +33,28 @@ export default function Home() {
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Hi, I'm <span className="highlight">Kevinkerubakar</span></h1>
+            <h1 className="text-5xl font-bold mb-6">
+              Hi, I'm <span className="highlight">Kevinkerubakar</span>
+            </h1>
             <p className="text-xl mb-8 max-w-2xl mx-auto">Software Engineer</p>
+            <a
+              href="/components/projects/agent"
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+            >
+              <span>Try My AI Assistant</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 ml-2"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -36,10 +66,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg mb-6">
-                Software Engineer with 2+ years of experience delivering scalable backend systems using TypeScript and AWS. 
-                Proven track record in building fault-tolerant distributed architectures and orchestrating workflows with Temporal.io. 
-                Skilled in leveraging AI to enhance cloud applications, automate operations, and streamline business processes. 
-                Known for creating solutions that improve reliability, performance, and developer efficiency.
+                Software Engineer with 2+ years of experience delivering
+                scalable backend systems using TypeScript and AWS. Proven track
+                record in building fault-tolerant distributed architectures and
+                orchestrating workflows with Temporal.io. Skilled in leveraging
+                AI to enhance cloud applications, automate operations, and
+                streamline business processes. Known for creating solutions that
+                improve reliability, performance, and developer efficiency.
               </p>
             </div>
             <div className="card p-6 rounded-lg">
@@ -68,25 +101,51 @@ export default function Home() {
                 </div>
                 <span className="text-sm text-accent">Tamil Nadu, India</span>
               </div>
-              
+
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-accent mb-2">Use Case</h4>
-                <p className="mb-4">Building scalable enterprise solutions using Node.js, TypeScript, AWS cloud technologies and AI Tools</p>
-                
-                <h4 className="text-lg font-semibold text-accent mb-2">Solution</h4>
+                <h4 className="text-lg font-semibold text-accent mb-2">
+                  Use Case
+                </h4>
+                <p className="mb-4">
+                  Building scalable enterprise solutions using Node.js,
+                  TypeScript, AWS cloud technologies and AI Tools
+                </p>
+
+                <h4 className="text-lg font-semibold text-accent mb-2">
+                  Solution
+                </h4>
                 <ul className="space-y-2 mb-4">
-                  <li>• Designed & deployed Node.js microservices handling 1B requests/day</li>
-                  <li>• Implemented Temporal.io workflows to automate failure retries</li>
+                  <li>
+                    • Designed & deployed Node.js microservices handling 1B
+                    requests/day
+                  </li>
+                  <li>
+                    • Implemented Temporal.io workflows to automate failure
+                    retries
+                  </li>
                   <li>• Led migration from JavaScript to TypeScript</li>
-                  <li>• Took ownership of customer and infrastructure issues</li>
+                  <li>
+                    • Took ownership of customer and infrastructure issues
+                  </li>
                 </ul>
-                
-                <h4 className="text-lg font-semibold text-accent mb-2">Impact</h4>
+
+                <h4 className="text-lg font-semibold text-accent mb-2">
+                  Impact
+                </h4>
                 <ul className="space-y-2">
-                  <li>• Reduced manual effort by 70% through workflow automation</li>
-                  <li>• Reduced runtime errors by 50% through TypeScript migration</li>
-                  <li>• Delivered reliable, customer-focused solutions at scale</li>
-                  <li>• Contributed to faster delivery of features and smoother tech transitions</li>
+                  <li>
+                    • Reduced manual effort by 70% through workflow automation
+                  </li>
+                  <li>
+                    • Reduced runtime errors by 50% through TypeScript migration
+                  </li>
+                  <li>
+                    • Delivered reliable, customer-focused solutions at scale
+                  </li>
+                  <li>
+                    • Contributed to faster delivery of features and smoother
+                    tech transitions
+                  </li>
                 </ul>
               </div>
             </div>
@@ -101,20 +160,37 @@ export default function Home() {
           <div className="grid md:grid-cols-1 gap-8">
             <div className="card p-6 rounded-lg">
               <h3 className="text-xl font-bold mb-4">Durable AI Agent</h3>
-              
+
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-accent mb-2">Use Case</h4>
-                <p className="mb-4">Chatbot with natural language speech capabilities to handle customer support inquiries</p>
-                
-                <h4 className="text-lg font-semibold text-accent mb-2">Solution</h4>
+                <h4 className="text-lg font-semibold text-accent mb-2">
+                  Use Case
+                </h4>
+                <p className="mb-4">
+                  Chatbot with natural language speech capabilities to handle
+                  customer support inquiries
+                </p>
+
+                <h4 className="text-lg font-semibold text-accent mb-2">
+                  Solution
+                </h4>
                 <ul className="space-y-2 mb-4">
-                  <li>• Added voice + text interaction using ElevenLabs and Gemini</li>
-                  <li>• Connected to multiple data sources for autonomous issue resolution</li>
+                  <li>
+                    • Added voice + text interaction using ElevenLabs and Gemini
+                  </li>
+                  <li>
+                    • Connected to multiple data sources for autonomous issue
+                    resolution
+                  </li>
                   <li>• Designed scalable and adaptable system architecture</li>
-                  <li>• Built using Next.js, Express, AWS, Gemini, ElevenLabs, LangChain</li>
+                  <li>
+                    • Built using Next.js, Express, AWS, Gemini, ElevenLabs,
+                    LangChain
+                  </li>
                 </ul>
-                
-                <h4 className="text-lg font-semibold text-accent mb-2">Impact</h4>
+
+                <h4 className="text-lg font-semibold text-accent mb-2">
+                  Impact
+                </h4>
                 <ul className="space-y-2">
                   <li>• Reduced human support workload by 40%</li>
                   <li>• Improved user engagement by 30%</li>
@@ -141,7 +217,7 @@ export default function Home() {
                 <li>• OOPS</li>
               </ul>
             </div>
-            
+
             <div className="card p-6 rounded-lg">
               <h3 className="font-bold mb-4 text-accent">Technologies</h3>
               <ul className="space-y-2">
@@ -153,7 +229,7 @@ export default function Home() {
                 <li>• Azure CI/CD pipeline</li>
               </ul>
             </div>
-            
+
             <div className="card p-6 rounded-lg">
               <h3 className="font-bold mb-4 text-accent">AI Tools</h3>
               <ul className="space-y-2">
@@ -184,7 +260,12 @@ export default function Home() {
             </div>
             <div className="flex justify-center items-center">
               <div className="space-x-6">
-                <a href="https://www.linkedin.com/in/kevinkerubakar-muthuraj" className="btn-primary px-6 py-2 rounded-full inline-block">LinkedIn</a>
+                <a
+                  href="https://www.linkedin.com/in/kevinkerubakar-muthuraj"
+                  className="btn-primary px-6 py-2 rounded-full inline-block"
+                >
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>

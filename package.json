@@ -1,6 +1,7 @@
 {
-  "name": "delta",
-  "version": "0.1.0",
+  "name": "kevinkerubakar-portfolio",
+  "version": "1.0.0",
+  "description": "A website to display my career",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,18 +10,30 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@chroma-core/default-embed": "^0.1.8",
+    "@chroma-core/google-gemini": "^0.1.7",
+    "@langchain/community": "^1.0.0",
+    "@langchain/core": "^1.0.2",
+    "@langchain/google-genai": "^1.0.0",
+    "@langchain/langgraph": "^1.0.1",
+    "@langchain/textsplitters": "^1.0.0",
+    "chromadb": "^3.1.0",
+    "docx": "^9.5.1",
+    "langchain": "^1.0.2",
+    "mammoth": "^1.11.0",
+    "next": "16.0.1",
+    "pdf-parse": "^1.1.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "next": "16.0.1"
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "16.0.1"
+    "eslint-config-next": "16.0.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

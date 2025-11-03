@@ -1,1 +1,0 @@
-FROM chromadb/chroma:latest
